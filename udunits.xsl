@@ -21,7 +21,7 @@
 
   <body>
     <h1>UDUNITS2 XML Database</h1>
-    <p>These data are from version the <a href="https://www.unidata.ucar.edu/software/udunits/">UDUNITS2</a> software. See copyright statement below.</p>
+    <p>These data are from version 2.2.28 of the <a href="https://www.unidata.ucar.edu/software/udunits/">UDUNITS2</a> software. See copyright statement below.</p>
 
     <button onclick="goBack()">Go Back</button>
 
