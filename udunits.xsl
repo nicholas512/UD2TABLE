@@ -25,8 +25,6 @@
       }
       </script>
            
-
-
       <table border="1">
         <tr class="tableheading" bgcolor="#07778f">
           <th>Unit</th>
@@ -40,8 +38,18 @@
           <tr class="tablerow" style="text-align:center;">
             <td>  <!-- Name -->
               <div>
-              <p><xsl:value-of select = "name/singular" /></p>
-              <p><xsl:value-of select = "name/plural" /></p>
+                <xsl:for-each select="./name/singular | ./name/plural">
+                <xsl:choose>
+                  <xsl:when test="./@comment">
+                    <div class="tooltip"><xsl:value-of select = "." />
+                      <span class="tooltiptext"><xsl:value-of select = "./@comment" /></span>
+                    </div>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <p><xsl:value-of select = "." /></p>
+                  </xsl:otherwise>
+                </xsl:choose>
+                </xsl:for-each>
               </div>
               
             </td>
