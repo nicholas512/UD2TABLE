@@ -1,0 +1,607 @@
+/*
+ * Modified from https://www.unidata.ucar.edu/css/upc.css
+ */
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+ html {
+     margin: 0;
+     padding: 0;
+ }
+ 
+ body {
+     margin: 0;
+     padding: 0;
+     font-family: "Ubuntu", "Lucida Grande", Verdana, Arial;
+     color: #333333;
+     background: url('/images/bg.jpg') repeat-x #E3E4E6;
+     font-size: 10pt;
+     line-height: 100%;
+ }
+ 
+ /* hyperlinks */
+ a:link {
+     color: #06778F;
+     text-decoration: none;
+ }
+ a:visited {
+     color: #81B2C0;
+     text-decoration: none;
+ }
+ a:active {
+     color: #81B2C0;
+     text-decoration: underline;
+ }
+ a:hover {
+     color: #81B2C0;
+     text-decoration: underline;
+ }
+ a.more {
+     font-size: 0.85em;
+     margin: 0 10px 0 0;
+     padding: 0 10px 0 0;
+     background: transparent url('/images/more.png') no-repeat right 2px;
+ }
+ a.back {
+     font-size: 0.85em;
+     margin: 0 0 12px 0;
+     padding: 0 0 12px 10px;
+     background: transparent url('/images/less.png') no-repeat left 5px;
+ }
+ .return {
+     float: right;
+     font-size: 0.85em;
+     margin: 0 0px 0 0;
+     padding: 0 20px 0 0;
+     background: transparent url('/images/up.png') no-repeat right 3px;
+     clear: right;
+ }
+ 
+ /* font formatting */
+ h1 {
+     color: #034250;
+     font-family: "UbuntuRegular", "Lucida Grande", Verdana, Arial;
+     font-size: 1.5em;
+     line-height: 1.4em;
+     margin: 6px 0 15px 0; /* 6px top helps h1 align with header in left tabs */
+     border-bottom: 2px solid #034250;
+ }
+ 
+ h1.tall {
+     padding-top:0.85em; /* for when the PageNav header is two lines */
+ }
+ 
+ h2 {
+     color: #034250;
+     font-family: "UbuntuRegular", "Lucida Grande", Verdana, Arial;
+     font-size: 1.3em;
+     line-height: 1.4em;
+     margin: 5px 0 15px 0;
+ }
+ 
+ h3 {
+     color: #696969;
+     font-family: "UbuntuRegular", "Lucida Grande", Verdana, Arial;
+     font-size: 1.2em;
+     line-height: 1.3em;
+     margin: 5px 0 15px 0;
+ }
+ 
+ h4 {
+     color: #696969;
+     font-family: "UbuntuRegular", "Lucida Grande", Verdana, Arial;
+     font-size: 1.1em;
+     line-height: 1.2em;
+     margin: 5px 0 15px 0;
+     border-bottom: 1px dotted #696969;
+ }
+ 
+ h5 {
+     color: #696969;
+     font-family: "UbuntuRegular", "Lucida Grande", Verdana, Arial;
+     font-size: 1.0em;
+     line-height: 1.1em;
+     margin: 5px 0 15px 0;
+ }
+ small {
+     font-size: 0.85em;
+ }
+ .code {
+     font-family: courier-new, monospace;
+ }
+ 
+ .tight {
+     margin-top:0 !important;
+     padding-top:0 !important;
+ }
+ 
+ /* Standard Gradients
+  --------------------- */
+ 
+ /* for short boxes up to ~75px tall */
+ .shortGradient {
+     background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.65) 70%,rgba(227,228,230,0.5) 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80e3e4e6',GradientType=0 ); /* IE6-9 */
+ }
+ 
+ /* for tall boxes > 75px tall */
+ .tallGradient {
+     background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.55) 90%,rgba(227,228,230,0.5) 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80e3e4e6',GradientType=0 ); /* IE6-9 */
+ }
+ 
+ .tooltip {
+     cursor: help;
+ }
+ 
+ .highlight {
+     color: #D40000;
+     font-weight: bold;
+ }
+ 
+ .highlight_muted, .highlight_muted a {
+     color: #8B0000;
+ }
+ 
+ hr {
+     height: 1px;
+     border: none;
+     border-top: 1px dotted #CCCCCC;
+ }
+ 
+ img {
+     max-width: 100%;
+     height: auto;
+     border-width: 0; /* Needed for IE */
+ }
+ 
+ /* used on pages of deprecated packages */
+ .deprecated {
+     color: #A70000; /*dark red*/
+     font-weight: bold;
+ }
+ 
+ /* Page layout area CSS.
+  -------------------------*/
+ 
+ /* main content/center area (included in header layout) */
+ #wrap {
+     width: 100%;
+     max-width: 980px;
+     margin: 0 auto;
+ }
+ /* main content/center area (included in header layout) */
+ #container {
+     background-color: #FFFFFF;
+     padding: 20px 1%; /*DD: mix px and % in favor of the old 2% 1% */
+     overflow: hidden;
+     /* height: 100%;   /* DD: use height:auto in case #wrap gets a different height somehow */
+     height: auto;
+ }
+ 
+ /* container for content/center area */
+ #center-wrapper, #tabs {
+     margin: 0;
+     padding: 0;
+     min-width: 100%;
+     width: auto;
+     min-height: 400px;
+     /* text-align: justify; /* DD: Not sure why this was here */
+     /* -ms-text-justify: distribute-all-lines; /* DD: distribute-all-lines is obsolete */
+     /* text-justify: distribute-all-lines;  /* DD: distribute-all-lines is obsolete */
+     height: 100%;
+ }
+ 
+ /* three column layout */
+ #leftColumn {
+     margin-right: 0 !important;
+     max-width: 24.5%;
+     float: left;
+ }
+ 
+ #centerColumn {
+     max-width: 48%;
+ }
+ 
+ #rightColumn {
+     max-width: 24.5%;
+     float: right;
+ }
+ 
+ /* two column layout (use this with either the #leftColumn or #rightColumn) */
+ #doubleColumn {
+     max-width: 73.5%;
+ }
+ 
+ /*
+  * See http://stackoverflow.com/questions/6865194/fluid-width-with-equally-spaced-divs
+  * for notes on getting the horizontal spacing of the boxes even
+  */
+ #leftColumn, #centerColumn, #rightColumn, #doubleColumn, .column {
+     width: 100%;
+     margin: 0;
+     min-height: 150px;
+     vertical-align: top;
+     text-align: left;
+     display: inline-block;
+     *display: inline;
+     zoom: 1;
+     /*height: 100%;   /* DD: use height:auto in case parent gets a different height somehow */
+     height: auto;
+ }
+ 
+ /*
+  #doubleColumn p,
+  #doubleColumn li,
+  #doubleColumn td
+  {
+  font-size: 1.1em;
+  line-height: 130%;
+  }
+ 
+  #doubleColumn .ui-tabs-hz .ui-tabs-nav li {
+  font-size: 1.0em;
+  }
+  */
+ 
+ /* the following are to get even horizontal spacing */
+ .stretch {
+     width: 100%;
+     display: inline-block;
+     font-size: 0;
+     line-height: 0;
+ }
+ 
+ /* for when something nees to float left or right */
+ .floatLeft {
+     float: left;
+ }
+ .floatRight {
+     float: right;
+ }
+ 
+ /* header in bar underneath the top banner */
+ .internal-header {
+     position: relative;
+     top: -20px; /* Corresponds to #container top padding */
+     left: -1%; /* Corresponds to #container side padding */
+     max-width: 980px;
+     min-height: 15px;
+     width: 101%; /* Account for left shift */
+     height: auto;
+     background: #C9CCD8;
+     padding: 2px 1%; /* Positions h1 inside the div */
+ }
+ 
+ .internal-header h1 {
+     line-height: 1.5em;
+     display: inline;
+     max-width: 100%;
+     margin: 0 0 5px 0;
+     color: #696969;
+     border-bottom: none;
+     text-transform: none;
+     font-family: "UbuntuBold", "Lucida Grande", Verdana, Arial;
+     font-weight: normal;
+     font-size: 1.0em;
+     letter-spacing: 0.1em;
+ }
+ 
+ /* some divs to format a page into left, right & full width sections (mainly used in #tabs)*/
+ .left, .right {
+     padding: 10px;
+     margin: 10px 0;
+     border: 1px solid #E3E4E6;
+     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.55) 90%,rgba(227,228,230,0.5) 100%); /* W3C */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#80e3e4e6',GradientType=0 ); /* IE6-9 */
+     width: 63%; /*56%; */
+     float: left;
+     top: 0;
+     height: 100%;
+ }
+ 
+ .left aside > ul, .right aside > ul, .left aside > ol, .right aside > ol {
+     padding-left: 1em;
+ }
+ 
+ .right {
+     width: 28%;
+     float: right;
+     clear: right;
+ }
+ 
+ .left.twocol, .right.twocol {
+     width: 45.5%;
+ }
+ 
+ .left.remainder {
+     width: 66%;
+     margin:0;
+     padding:0;
+ }
+ 
+ .left.full {
+     width: 96%;
+     margin: 5px 0 15px 0;
+ }
+ 
+ .fullwidth {
+     width: 100%;
+     margin: 15px 5px;
+     float: left;
+     clear: both;
+ }
+ 
+ .nodec {
+     border: none !important;
+     background: none !important;
+ }
+ 
+ /* Some pages have .left/.right .twocol side by side. If we want them to be equal height,
+  * wrap in a div.flexcontain and put the content of the .twocol in a div.flextall
+  */
+ 
+ .flexcontain {
+   display:flex;
+   justify-content:space-around;
+   flex-wrap:wrap;
+ }
+ 
+ .flexcontain > .left.twocol, .flexcontain > .right.twocol {
+   height:auto;
+   display:flex;
+   margin-bottom: 1em !important;
+ }
+ 
+ .flextall {
+   flex: 1 1 auto;
+ }
+ 
+ /* ----------- */
+ 
+ .emph {
+     background: none;
+     padding: 15px 10px;
+     color: #696969;
+     font-style: italic;
+     font-size: 0.85em;
+     letter-spacing: 0.1em;
+ }
+ 
+ .openquote {
+     background: transparent url(/images/openquotes.png) top left no-repeat;
+     display: block;
+ }
+ 
+ .closequote {
+     background: transparent url(/images/closequotes.png) bottom right no-repeat;
+     display: block;
+ }
+ 
+ .rightinset {
+     margin-left: 30px;
+     width: 200px;
+ }
+ 
+ .leftinset {
+     margin-right: 30px;
+     width: 200px;
+ }
+ 
+ /* image styling */
+ img.nodec {
+     border: none;
+     margin: 0 10px 0 0;
+     padding: 3px;
+     float: left;
+     clear: left;
+ }
+ 
+ img.dec {
+     border: 1px solid #E3E4E6;
+     margin: 0 10px 0 0;
+     padding: 3px;
+     float: left;
+ }
+ 
+ /* <ul> styling for grid-like layout */
+ 
+ ul.tabular {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
+ ul.tabular li {
+     width: 33%;
+     display: inline;
+     background: none;
+     margin: 10px 0;
+     padding: 0;
+     border: none;
+     float: left;
+ }
+ ul.tabular.full li {
+     width: 100%;
+ }
+ ul.tabular.half li {
+     width: 50%;
+ }
+ ul.tabular.quarter li {
+     width: 25%;
+ }
+ 
+ /*datapage stuff*/
+ ul.ancillary {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
+ 
+ ul.ancillary li {
+     width: 100%;
+     background: none;
+     margin: 10px 0;
+     padding: 0;
+     border: none;
+     float: left;
+     background: none;
+ }
+ 
+ /* <ul> styling for FAQs */
+ ul.faq {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+ }
+ ul.faq li {
+     margin: 0 0 10px 0;
+     padding: 5px 0px 0px 35px;
+     min-height: 30px;
+     background: transparent url(/images/question.png) top left no-repeat;
+ }
+ ul.faq li b {
+     color: #696969;
+     margin: 0;
+     padding: 0;
+     display: block;
+ }
+ 
+ /* UCAR-like formatting used in #leftColumn (or where ever) */
+ ul.links {
+     margin: 0;
+     padding: 0.6em;
+ }
+ 
+ ul.links li {
+     list-style: none;
+     padding: 10px 0;
+     border-top: 1px solid #FFFFFF;
+ }
+ 
+ ul.links li.first {
+     border-bottom: 2px solid #596D7B;
+     padding: 5px 0;
+ }
+ 
+ ul.links li.first a {
+     color: #034250 !important;
+     font-family: "UbuntuBold";
+     font-size: 14px;
+     text-transform: uppercase;
+     font-weight: normal !important;
+ }
+ 
+ ul.links li.first, ul.links li.second {
+     border-top: none;
+ }
+ 
+ ul.links li a {
+     color: #596D7B;
+     font-family: "UbuntuRegular";
+     font-size: 14px;
+ }
+ 
+ ul.links li a:hover {
+     color: #596D7B;
+     text-decoration: underline;
+ }
+ 
+ /* simple table styling */
+ table.simple {
+     border-collapse: collapse;
+     border: 1px solid;
+     width: auto;
+     margin: 0;
+     border-color: #C9CCD8;
+ }
+ table.simple td {
+     padding: 5px;
+     border: 1px solid;
+     border-color: #C9CCD8;
+ }
+ table.simple th {
+     padding: 5px;
+     border: 1px solid;
+     border-color: #C9CCD8;
+     background-color: #81B2C0;
+ }
+ 
+ table.dec {
+     margin: 10px auto 10px auto;
+     border-collapse: collapse;
+     width: 100%;
+ }
+ 
+ .dec td {
+     font-size: 9pt;
+     margin: 10px 0 10px 0;
+     padding: 5px 20px 5px 5px;
+     vertical-align: text-top;
+ }
+ .dec tr {
+     border-bottom: 1px solid #CFCFCF;
+ }
+ 
+ table.simple.downloads {
+     margin: 0 0 30px 0;
+     font-size: 10pt;
+ }
+ 
+ table.simple.downloads td {
+     vertical-align:top;
+ }
+ 
+ table.simple.downloads td.sub {
+     background-color: #E3E4E6;
+ }
+ 
+ 
+ /* Styling for dl/dt/dd lists in software support sections */
+ .listCounter {
+     counter-reset: list-counter;
+ }
+ .listCounter dt {
+     position: relative;
+     padding: 0;
+     margin: 25px 0 15px 0;
+ }
+ .listCounter dt:before {
+     content: counter(list-counter);
+     counter-increment: list-counter;
+     position: absolute;
+     left: 0;
+     top: 0;
+     font-size: 40px;
+     font-weight: bold;
+     font-style: italic;
+     color: #CCCCCC;
+     padding: 0;
+     margin: 0;
+     line-height: 80%;
+ }
+ .listCounter dt, .listCounter dd {
+     padding-left: 35px;
+ }
+ 
+ /* Modifications for print */
+ @media print {
+ 
+     #header-wrap, #triptych-column-container, #toprow, ul#breadcrumbs, nav, #leftColumn #software, #leftColumn #data {
+         display: none !important;
+     }
+ 
+     #doubleColumn {
+         max-width: 100% !important;
+     }
+ 
+     footer {
+         display: none !important;
+     }
+ 
+     /* blog print */
+     .blog #rightColumn, .next-previous {
+         display: none !important;
+     }
+ }
