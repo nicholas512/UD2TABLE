@@ -41,3 +41,10 @@ table {
   .tooltip:hover .tooltiptext {
     visibility: visible;
   }
+
+embed {
+    position: absolute;
+    margin: auto;
+    left: 50%;
+    transform: translate(-50%, 5%);
+  }
