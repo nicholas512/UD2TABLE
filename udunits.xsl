@@ -28,7 +28,7 @@
       <table border="1">
         <tr class="tableheading" bgcolor="#07778f">
           <th></th>
-          <th>Unit</th>
+          <th>Name</th>
           <th>Alias</th>
           <th>Symbol</th>
           <th>Def</th>
@@ -78,18 +78,23 @@
               </div>
             </td>           
             <td>  <!-- Symbol -->
+              <div>
               <xsl:for-each select=".//symbol">
                 <xsl:choose>
                   <xsl:when test="./@comment">
-                    <div class="tooltip"><xsl:value-of select = "." />
+                  <p>
+                    <div class="tooltip">
+                        <xsl:value-of select = "." />
                       <span class="tooltiptext"><xsl:value-of select = "./@comment" /></span>
                     </div>
+                  </p>
                   </xsl:when>
                   <xsl:otherwise>
-                    <p><xsl:value-of select = "." /></p>
+                      <p><xsl:value-of select = "." /></p>
                   </xsl:otherwise>
                 </xsl:choose>
               </xsl:for-each> 
+             </div>
             </td>
             <td>  <!-- Def -->
               <xsl:value-of select = "def" />
