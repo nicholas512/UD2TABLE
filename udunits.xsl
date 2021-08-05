@@ -27,6 +27,7 @@
            
       <table border="1">
         <tr class="tableheading" bgcolor="#07778f">
+          <th></th>
           <th>Unit</th>
           <th>Alias</th>
           <th>Symbol</th>
@@ -36,6 +37,13 @@
         <xsl:for-each select="unit-system">
         <xsl:for-each select="unit">
           <tr class="tablerow" style="text-align:center;">
+            <td>  <!-- Comment -->
+              <xsl:for-each select="comment">
+                <div class="tooltip">C
+                  <span class="tooltiptext"><xsl:value-of select = "." /></span>
+                </div>
+              </xsl:for-each> 
+            </td>
             <td>  <!-- Name -->
               <div>
                 <xsl:for-each select="./name/singular | ./name/plural">
@@ -55,9 +63,18 @@
             </td>
             <td>  <!-- Alias -->
               <div>
-              <xsl:for-each select="aliases/name">
-                <p><xsl:value-of select = "singular" /></p>
-              </xsl:for-each> 
+                <xsl:for-each select="aliases/name/singular | aliases/name/plural">
+                <xsl:choose>
+                  <xsl:when test="./@comment">
+                    <div class="tooltip"><xsl:value-of select = "." />
+                      <span class="tooltiptext"><xsl:value-of select = "./@comment" /></span>
+                    </div>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <p><xsl:value-of select = "." /></p>
+                  </xsl:otherwise>
+                </xsl:choose>
+                </xsl:for-each>
               </div>
             </td>           
             <td>  <!-- Symbol -->
@@ -77,8 +94,8 @@
             <td>  <!-- Def -->
               <xsl:value-of select = "def" />
             </td>
-            <td>  <!-- Definition -->
-              <p style="text-align:left;">
+            <td class="longtext">  <!-- Definition -->
+              <p>
                 <xsl:value-of select = "definition" />
               </p>
             </td>

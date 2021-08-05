@@ -7,6 +7,10 @@ td>div {
     padding-bottom: 1px;
 }
 
+td.longtext>p {
+    text-align:left;
+}
+
 table {
     margin-top:10px;
 }
