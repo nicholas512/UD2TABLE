@@ -16,7 +16,7 @@
     <body>
       <h1>UDUNITS2 XML Database</h1>
       <p>These data are from the <a href="https://www.unidata.ucar.edu/software/udunits/">UDUNITS2</a> software. See copyright statement below.</p>
-      
+
       <button onclick="goBack()">Go Back</button>
 
       <script>
@@ -43,6 +43,7 @@
               <p><xsl:value-of select = "name/singular" /></p>
               <p><xsl:value-of select = "name/plural" /></p>
               </div>
+              
             </td>
             <td>  <!-- Alias -->
               <div>
@@ -52,14 +53,18 @@
               </div>
             </td>           
             <td>  <!-- Symbol -->
-              <xsl:choose>
-                <xsl:when test="symbol">
-                  <xsl:value-of select = "symbol" />
-                </xsl:when>
-                <xsl:otherwise test="aliases/symbol">
-                  <xsl:value-of select = "aliases/symbol" />
-                </xsl:otherwise>
-              </xsl:choose>
+              <xsl:for-each select=".//symbol">
+                <xsl:choose>
+                  <xsl:when test="./@comment">
+                    <div class="tooltip"><xsl:value-of select = "." />
+                      <span class="tooltiptext"><xsl:value-of select = "./@comment" /></span>
+                    </div>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <p><xsl:value-of select = "." /></p>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:for-each> 
             </td>
             <td>  <!-- Def -->
               <xsl:value-of select = "def" />
